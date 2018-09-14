@@ -18,7 +18,7 @@ var log = require('./log.js');
 function tinifyImg(resourcePath, options, context) {
     tinify.key = options.key;
     var p = new Promise((resolve, reject) => {
-        log.default.info('tinify ' + context.resource, 'color:#bada55');
+        log.default.info('tinify ' + context.resource);
         tinify.fromBuffer(fs.readFileSync(resourcePath)).toBuffer((err, data) => {
             if (err) {
                 throw err;

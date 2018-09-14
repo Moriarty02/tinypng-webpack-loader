@@ -13,7 +13,7 @@
   ],
   "author": "zhangjunyi",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^2.4.1",
     "tinify": "^1.6.0-beta.2"
   }
