@@ -123,7 +123,7 @@ module.exports = function (imgSource) {
     tinifyImg(this.resourcePath, options, this)
         .then(tinifiedBuffer => {
             radio = Math.round(tinifiedBuffer.length / content.length * 10000) / 100 + "% ";
-            log.default.note('\n tinyfy end  radio ' + radio + " " + this.resourcePath);
+            log.default.note('\n tinyfy end  radio = ' + radio + " " + this.resourcePath);
             cacheModule.setCache(fileMd5, tinifiedBuffer, this.resourcePath, radio);
             callback(null, fileLoader.call(this, tinifiedBuffer));
         })
