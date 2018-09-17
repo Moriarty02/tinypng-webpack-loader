@@ -9,21 +9,24 @@
 ```
 
 ## Usage
+
+### step 1:
 ```
-Step 1:
-    sign in tinypng's website get a developer key
-    
-    [https://tinyjpg.com/developers](https://tinyjpg.com/developers)
-    
-step 2:
+    sign in tinypng's website get a developer key(just need an email address)  
+``` 
+ [https://tinyjpg.com/developers](https://tinyjpg.com/developers)
+  
+### step 2:
+ 
+``` 
     options:{
         isProduct:boolean //use tinypng in production env
         key:string      // you key from https://tinyjpg.com/developers
         cache:boolean     // use cache	
     }
-    
-step 3:
-
+```
+### step 3:
+```
 eg.:
 var tinypng=require('tinypng-webpack-loader');
 
