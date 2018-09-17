@@ -4,7 +4,7 @@
 
 ```
 "devDependencies" : {
-    "tinypng-webpack-loader" : "git+https://github.com/Moriarty02/tinypng-webpack-loader.git"
+    "tinypng-webpack-loader" : "git+http://git.qstore.org/zhangxiuhua/tinypng-webpack-loader.git"
 }
 ```
 
