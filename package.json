@@ -21,6 +21,6 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@http://git.qstore.org/zhangxiuhua/tinypng-webpack-loader.git"
+    "url": "git@https://github.com/Moriarty02/tinypng-webpack-loader.git"
   }
 }

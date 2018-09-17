@@ -37,7 +37,7 @@ module: {
         loader: 'url-loader',
         options: {
           isProduct: process.env.NODE_ENV == 'production',
-          key: "DEEJwwMJqu5IIpT4IiVhoFSgZ0LV1KdS",//use yours, this is mine
+          key: "your key",
           cache: true
         }
       }
