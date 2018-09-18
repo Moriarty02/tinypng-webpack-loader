@@ -90,9 +90,10 @@ module.exports = function (imgSource) {
     this.cacheable && this.cacheable();
     var options = loaderUtils.getOptions(this) || {};
     var content = null;
-    var fileLoader = require("file-loader");
+    // var fileLoader = require("file-loader");
     if (!options.isProduct) {//默认 生产环境启用tinypng
-        return fileLoader.call(this, imgSource);
+        //return fileLoader.call(this, imgSource);
+        return imgSource
     }
     content = imgSource;
     // if (limit) {
@@ -103,7 +104,8 @@ module.exports = function (imgSource) {
         var cacheValue = cacheModule.getCacheByMd5(fileMd5);
         if (cacheValue) {
             log.default.warn('fromCache radio= ' + cacheValue['radio'] + " " + cacheValue['tinifiedPath']);
-            return fileLoader.call(this, fs.readFileSync(cacheValue['tinifiedPath']));
+            // return fileLoader.call(this, fs.readFileSync(cacheValue['tinifiedPath']));
+            return fs.readFileSync(cacheValue['tinifiedPath']);
         }
     }
 
@@ -122,14 +124,16 @@ module.exports = function (imgSource) {
     var radio = 0;
     tinifyImg(this.resourcePath, options, this)
         .then(tinifiedBuffer => {
-            radio = Math.round(tinifiedBuffer.length / content.length * 10000) / 100 + "% ";
+            radio = "-" + (100 - (Math.round(tinifiedBuffer.length / content.length * 10000) / 100)) + "% ";
             log.default.note('\n tinyfy end  radio = ' + radio + " " + this.resourcePath);
             cacheModule.setCache(fileMd5, tinifiedBuffer, this.resourcePath, radio);
-            callback(null, fileLoader.call(this, tinifiedBuffer));
+            //  callback(null, fileLoader.call(this, tinifiedBuffer));
+            callback(null, tinifiedBuffer)
         })
         .catch(e => {
             log.default.info(e);
-            callback(null, fileLoader.call(this, content));
+            // callback(null, fileLoader.call(this, content));
+            callback(null, content)
         })
 
     // }

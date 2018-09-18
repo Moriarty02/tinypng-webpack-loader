@@ -34,7 +34,7 @@ module: {
     rules: [
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
+        loader: 'tinypng-webpack-loader',
         options: {
           isProduct: process.env.NODE_ENV == 'production',
           key: "your key",
